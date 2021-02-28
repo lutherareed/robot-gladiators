@@ -59,7 +59,20 @@ var fight = function(enemyName) {
 
 // run fight function to start game
 for (var i = 0; i < 3; i++) {
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth = 50;
-    fight(pickedEnemyName);
+    if (playerHealth > 0) {
+        // let player know what round they are in.
+        window.alert("Welcome to Robot Gladiatores!  Round " + (i + 1));
+
+        // pick new enemy to fight
+        var pickedEnemyName = enemyNames[i];
+
+        // reset enemy health for the new enemy combatant
+        enemyHealth = 50;
+
+        // fight the new enemy combatant
+        fight(pickedEnemyName);
+    } else {
+        window.alert("You have lost your robot in battle!  Game over!");
+        break;
+    }
 }
