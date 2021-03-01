@@ -11,7 +11,7 @@ var enemyAttack = 12;
 var startGame = function() {
   // reset player stats
   playerHealth = 100;
-  playerAttack = 10;
+  playerAttack = randomNumber(10, 14);
   playerMoney = 10;
 
   // fight each enemy robot by looping over them and fighting them one at a time
@@ -24,8 +24,9 @@ var startGame = function() {
       // pick new enemy to fight based on the index of the enemyNames array
       var pickedEnemyName = enemyNames[i];
 
-      // reset enemyHealth before starting new fight
+      // reset enemyHealth and attack values before starting new fight
       enemyHealth = randomNumber(40, 60);
+      enemyAttack = randomNumber(10,14);
 
       // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
       fight(pickedEnemyName);
